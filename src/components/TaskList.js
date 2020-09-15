@@ -13,12 +13,24 @@ function TaskList() {
         };
 
         setTodos([...todos, todo]);
-        document.querySelector('input').value = '';
+        document.querySelector('input.taskList__taskInput').value = '';
+    }
+
+    const deleteTask = (id) => {
+        const newTodos = todos.filter((todo) =>{
+            return todo.id !== id;
+        });
+        console.log(newTodos);
+        setTodos([...newTodos]);
     }
 
     const changeHandler = (id) => {
-       todos[id].checked = !todos[id].checked;
-       setTodos([...todos]);
+        todos.forEach((todo) => {
+            if(todo.id === id) {
+                todo.checked = !todo.checked;
+            }
+        });
+        setTodos([...todos]);
     }
 
     const displayTasks = (checked) => {
@@ -27,17 +39,18 @@ function TaskList() {
         }).map((todo) => {
             return (
                 <li key={todo.id} className="taskList__todoItem">
-                <label className="taskList__todoLabel">
-                    <input 
-                        className="taskList__checkbox"
-                        id={todo.id} 
-                        type="checkbox" 
-                        value={todo.value} 
-                        checked={todo.checked}
-                        onChange={(e) => changeHandler(todo.id, e)}
-                    />
-                    {todo.value} 
-                </label>
+                    <label className="taskList__todoLabel">
+                        <input 
+                            className="taskList__checkbox"
+                            id={todo.id} 
+                            type="checkbox" 
+                            value={todo.value} 
+                            checked={todo.checked}
+                            onChange={(e) => changeHandler(todo.id, e)}
+                        />
+                        {todo.value} 
+                    </label>
+                    <button className="taskList_deleteTask" onClick={(e) => deleteTask(todo.id, e)}>Delete</button>
                 </li>
             );
         });
