@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import AddIcon from '@material-ui/icons/Add';
+import DeleteIcon from '@material-ui/icons/Delete';
 import '../styles/TaskList.css';
 
 function TaskList() {
@@ -6,14 +8,16 @@ function TaskList() {
     const [todos, setTodos] = useState([]);
 
     const addTask = (e) => {
-        const todo = {
-            id: todos.length,
-            value: task,
-            checked: false
-        };
-
-        setTodos([...todos, todo]);
-        document.querySelector('input.taskList__taskInput').value = '';
+        if(task){
+            const todo = {
+                id: todos.length,
+                value: task,
+                checked: false
+            };
+    
+            setTodos([...todos, todo]);
+            document.querySelector('input.taskList__taskInput').value = '';
+        }
     }
 
     const deleteTask = (id) => {
@@ -50,7 +54,7 @@ function TaskList() {
                         />
                         {todo.value} 
                     </label>
-                    <button className="taskList_deleteTask" onClick={(e) => deleteTask(todo.id, e)}>Delete</button>
+                    <DeleteIcon className="taskList_deleteTask" onClick={(e) => deleteTask(todo.id, e)} />
                 </li>
             );
         });
@@ -70,7 +74,7 @@ function TaskList() {
                         <ul>{pendingTasks}</ul>
                     </div>
                     :
-                    <h3>You don't have any pending tasks. Yaaaaayyyyy!!!!!!!!</h3>
+                    <h3 className="taskList__fallback">You don't have any pending tasks. Yaaaaayyyyy!!!!!!!!</h3>
                 }
             </div>
 
@@ -93,7 +97,10 @@ function TaskList() {
                     placeholder="Enter task" 
                     onChange={e => setTask(e.target.value)}
                 ></input>
-                <button className="taskList__addTask" onClick={addTask}>Add Task</button>
+                <button className="taskList__addTask" onClick={addTask}>
+                    <AddIcon className="taskList__addIcon"/>
+                    <span className="taskList__add">Add Task</span>
+                </button>
             </div>
         </div>
     )
