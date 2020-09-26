@@ -8,6 +8,10 @@
     overflow-x: hidden;
 }
 
+.taskList__section {
+    margin-bottom: 4rem;
+}
+
 .taskList__fallback {
     font-size: min(7vw, 3rem);
     margin: 2vw 4vw;
@@ -23,14 +27,22 @@
     border-bottom: 1px solid lightgray;
 }
 
+.taskList__list {
+    width: 100vw;
+    margin: 2vw -4vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .taskList__todoItem {
     list-style: none;
     background-color: lightsalmon;
     border-radius: 10px;
     padding: 1.25vw 3vw;
-    margin: 1vw 4vw;
     width: 70vw;
-    height: fit-content;
+    margin: 1vw 4vw;
     display: flex;
     flex-direction: row;
 }

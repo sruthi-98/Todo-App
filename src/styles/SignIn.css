@@ -1,0 +1,55 @@
+.signIn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.signIn__container {
+    width: min(400px, 70vw);
+    height: 45vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    outline: 2px solid brown;
+}
+
+.signIn__container > h1 {
+    text-transform: uppercase;
+    font-weight: 200;
+    font-size: min(3rem, 15vw);
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.signIn__container > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.signIn__container > form > input {
+    display: block;
+    width: 80%;
+    padding: 12.5px;
+    margin: 10px 0;
+    outline-width: 0;
+    border: none;
+    border-bottom: 1px solid gray;
+    color: black;
+}
+
+.signIn__button {
+    text-transform: uppercase;
+    display: block;
+    border: 1px solid gray;
+    margin: 20px 10px;
+    width: 80%;
+    padding: 15px;
+    border-radius: 5px;
+}
