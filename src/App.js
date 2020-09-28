@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import SignIn from './components/SignIn';
+import Home from './components/Home';
+import SignUp from './components/SignUp';
+import Login from './components/Login';
 import TaskList from './components/TaskList';
 import './App.css';
 
@@ -9,11 +11,17 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <Route path="/signin">
-            <SignIn />
+        <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/signup">
+            <SignUp />
           </Route>
           <Route path="/tasks">
             <TaskList />
+          </Route>
+          <Route path="/">
+            <Home />
           </Route>
         </Switch>
       </div>

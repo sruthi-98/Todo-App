@@ -1,11 +1,11 @@
-.signIn {
+.login {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
 }
 
-.signIn__container {
+.login__container {
     width: min(400px, 70vw);
     height: 45vh;
     background-color: white;
@@ -17,7 +17,7 @@
     outline: 2px solid brown;
 }
 
-.signIn__container > h1 {
+.login__container > h1 {
     text-transform: uppercase;
     font-weight: 200;
     font-size: min(3rem, 15vw);
@@ -25,7 +25,7 @@
     margin-bottom: 10px;
 }
 
-.signIn__container > form {
+.login__container > form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,7 +33,7 @@
     width: 100%;
 }
 
-.signIn__container > form > input {
+.login__container > form > input {
     display: block;
     width: 80%;
     padding: 12.5px;
@@ -44,7 +44,7 @@
     color: black;
 }
 
-.signIn__button {
+.login__button {
     text-transform: uppercase;
     display: block;
     border: 1px solid gray;

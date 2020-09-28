@@ -1,31 +1,39 @@
 import React, { useState } from 'react';
 // import { Link, useHistory } from 'react-router-dom';
-import '../styles/SignIn.css';
+import '../styles/SignUp.css';
 
-function SignIn() {
-    const [name, setName] = useState('');
+function SignUp() {
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     return (
-        <div className="signIn">
+        <div className="signUp">
             {/* <Link to="/">
                 <img
-                    className="signIn__logo" 
+                    className="signUp__logo" 
                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png"
                     alt=""
                 /> 
             </Link> */}
 
-            <div className="signIn__container">
-                <h1>Sign-in</h1>
+            <div className="signUp__container">
+                <h1>Sign Up</h1>
 
                 <form>
                     <input 
                         type="text" 
-                        value={name} 
-                        placeholder="Name"
-                        onChange={e => setName(e.target.value)}
+                        value={firstName} 
+                        placeholder="First Name"
+                        onChange={e => setFirstName(e.target.value)}
+                    />
+
+                    <input 
+                        type="text" 
+                        value={lastName} 
+                        placeholder="Second Name"
+                        onChange={e => setLastName(e.target.value)}
                     />
 
                     <input 
@@ -44,10 +52,10 @@ function SignIn() {
 
                     <button
                         type="submit"
-                        // onClick={signIn}
-                        className="signIn__button"
+                        // onClick={signUp}
+                        className="signUp__button"
                     >
-                        Sign In
+                        Sign Up
                     </button>
                 </form>
             </div>
@@ -55,4 +63,4 @@ function SignIn() {
     )
 }
 
-export default SignIn;
+export default SignUp;
