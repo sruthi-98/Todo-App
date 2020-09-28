@@ -1,22 +1,35 @@
 import React, { useState } from 'react';
-// import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import axios from '../axios';
 import '../styles/SignUp.css';
 
 function SignUp() {
+    const history = useHistory();
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const signUp = (event) => {
+        event.preventDefault();
+
+        const user = {
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            password: password
+        };
+
+        axios({
+            method: 'post',
+            url: '/user/register',
+            data: user
+        }).then(() => history.push('/login'))
+          .catch(error => alert(error.message));
+    }
+
     return (
         <div className="signUp">
-            {/* <Link to="/">
-                <img
-                    className="signUp__logo" 
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png"
-                    alt=""
-                /> 
-            </Link> */}
 
             <div className="signUp__container">
                 <h1>Sign Up</h1>
@@ -52,7 +65,7 @@ function SignUp() {
 
                     <button
                         type="submit"
-                        // onClick={signUp}
+                        onClick={signUp}
                         className="signUp__button"
                     >
                         Sign Up

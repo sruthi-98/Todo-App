@@ -39,6 +39,7 @@
     padding: 12.5px;
     margin: 10px 0;
     outline-width: 0;
+    outline: none;
     border: none;
     border-bottom: 1px solid gray;
     color: black;

@@ -41,11 +41,11 @@ function TaskList() {
     }
 
     // Update status of task
-    const changeHandler = (id) => {
+    const changeHandler = (id, checked) => {
         axios({
             method: 'patch',
             url: '/tasks/update/' + id,
-            data: { checked: true }
+            data: { checked: !checked }
         }).then(res => console.log(res))
           .catch(error => console.log(error));
     }
@@ -64,7 +64,7 @@ function TaskList() {
                             type="checkbox" 
                             value={todo.description} 
                             checked={todo.checked}
-                            onChange={(e) => changeHandler(todo._id, e)}
+                            onChange={(e) => changeHandler(todo._id, todo.checked, e)}
                         />
                         {todo.description} 
                     </label>

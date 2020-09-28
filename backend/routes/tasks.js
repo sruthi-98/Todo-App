@@ -17,7 +17,7 @@ router.post('/new', (req, res) => {
 // Get all tasks
 router.get('/', (req, res) => {
     Task.find()
-        .then(() => res.status(200).send('Tasks retrieved'))
+        .then(data => res.status(200).send(data))
         .catch(err => res.status(400).send(err))
 })
 

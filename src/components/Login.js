@@ -1,20 +1,31 @@
 import React, { useState } from 'react';
-// import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import axios from '../axios';
 import '../styles/Login.css';
 
 function Login() {
+    const history = useHistory();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const login = (event) => {
+        event.preventDefault();
+
+        const user = {
+            email: email,
+            password: password
+        };
+
+        axios({
+            method: 'post',
+            url: '/user/login',
+            data: user
+        }).then(() => history.push('/tasks'))
+          .catch(error => alert(error.message));
+    }
+
     return (
         <div className="login">
-            {/* <Link to="/">
-                <img
-                    className="login__logo" 
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/1024px-Amazon_logo.svg.png"
-                    alt=""
-                /> 
-            </Link> */}
 
             <div className="login__container">
                 <h1>Log In</h1>
@@ -36,7 +47,7 @@ function Login() {
 
                     <button
                         type="submit"
-                        // onClick={login}
+                        onClick={login}
                         className="login__button"
                     >
                         Log In
