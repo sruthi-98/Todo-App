@@ -10,7 +10,7 @@ router.post('/new', (req, res) => {
     })
 
     task.save()
-        .then(data => res.status(201).send('Task created: ', {task: data._id}))
+        .then(data => res.status(201).send('Task created'))
         .catch(err => res.status(400).send(err))
 })
 
