@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 // Database schema for task collection
-const taskSchema = mongoose.Schema({
+export const taskSchema = mongoose.Schema({
     description: {
         type: String,
         required: true

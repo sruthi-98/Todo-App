@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { taskSchema } from './tasks.model.js';
 
 // Database schema for user
 const userSchema = mongoose.Schema({
@@ -22,7 +23,11 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true,
         min: 8
+    },
+    todos: {
+        type: [taskSchema]
     }
+    
 })
 
 export default mongoose.model('users', userSchema);
