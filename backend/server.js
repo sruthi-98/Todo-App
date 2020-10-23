@@ -18,7 +18,8 @@ app.use(cors({ credentials: true }))
 mongoose.connect(process.env.CONNECTION_URL, {
                     useCreateIndex: true,
                     useNewUrlParser: true,
-                    useUnifiedTopology: true
+                    useUnifiedTopology: true,
+                    useFindAndModify: false
                 })
         .catch(err => console.log(err.reason))
 
