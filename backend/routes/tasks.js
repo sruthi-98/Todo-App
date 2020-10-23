@@ -23,8 +23,11 @@ router.get('/:userId', (req, res) => {
 })
 
 // Update a task
-router.patch('/update/:taskId', (req, res) => {
-    Task.updateOne({_id: req.params.taskId}, { $set: { checked: req.body.checked } })
+router.patch('/:userId/update/:taskId', (req, res) => {
+    User.findOneAndUpdate(
+            {todos: {$elemMatch: {_id: req.params.taskId}}},
+            {$set: {"todos.$.checked": req.body.checked}}
+        )
         .then(() => res.status(200).send('Task updated'))
         .catch(err => res.status(400).send(err))
 })
