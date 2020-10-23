@@ -16,8 +16,8 @@ router.patch('/:userId/new', (req, res) => {
 })
 
 // Get all tasks
-router.get('/', (req, res) => {
-    Task.find()
+router.get('/:userId', (req, res) => {
+    User.find({ }, { todos: 1, _id: 0 })
         .then(data => res.status(200).send(data))
         .catch(err => res.status(400).send(err))
 })
