@@ -5,6 +5,7 @@ import axios from '../axios';
 import '../styles/TaskList.css';
 
 function TaskList() {
+    const userId = localStorage.getItem('userId');
     const [task, setTask] = useState('');
     const [todos, setTodos] = useState([]);
 
@@ -12,17 +13,18 @@ function TaskList() {
     useEffect(() => {
         axios({
             method: 'get',
-            url: '/tasks',
-        }).then((res) => setTodos(res.data))
+            url: '/tasks/' + userId,
+        }).then((res) => setTodos(res.data[0]?.todos))
           .catch(error => console.log(error));
-    }, [todos]);
+        
+    }, [todos, userId]);
 
     // Add task to database
     const addTask = () => {
         if(task){
             axios({
-                method: 'post',
-                url: '/tasks/new',
+                method: 'patch',
+                url: '/tasks/' + userId + '/new',
                 data: { description: task }
             }).then(res => console.log(res))
               .catch(error => console.log(error));
@@ -35,7 +37,7 @@ function TaskList() {
     const deleteTask = (id) => {
         axios({
             method: 'delete',
-            url: '/tasks/delete/' + id,
+            url: '/tasks/' + userId + '/delete/' + id,
         }).then(res => console.log(res))
           .catch(error => console.log(error));
     }
@@ -44,7 +46,7 @@ function TaskList() {
     const changeHandler = (id, checked) => {
         axios({
             method: 'patch',
-            url: '/tasks/update/' + id,
+            url: '/tasks/' + userId + '/update/' + id,
             data: { checked: !checked }
         }).then(res => console.log(res))
           .catch(error => console.log(error));
@@ -77,7 +79,6 @@ function TaskList() {
     // Groups tasks to pending and completed
     const pendingTasks = displayTasks(false);
     const completedTasks = displayTasks(true);
-
 
     return (
         <div className="taskList">
