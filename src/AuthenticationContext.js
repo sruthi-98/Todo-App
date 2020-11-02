@@ -6,6 +6,6 @@ export const AuthenticationProvider = ({reducer, initialState, children}) => (
     <AuthenticationContext.Provider value={useReducer(reducer, initialState)}>
         {children}
     </AuthenticationContext.Provider>
-)
+);
 
-export const useAuthenticationValue = useContext(AuthenticationContext);
+export const useAuthenticationValue = () => useContext(AuthenticationContext);
