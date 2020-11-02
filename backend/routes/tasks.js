@@ -17,7 +17,7 @@ router.patch('/:userId/new', (req, res) => {
 
 // Get all tasks
 router.get('/:userId', (req, res) => {
-    User.find({ }, { todos: 1, _id: 0 })
+    User.find({_id: req.params.userId})
         .then(data => res.status(200).send(data))
         .catch(err => res.status(400).send(err))
 })
@@ -33,10 +33,16 @@ router.patch('/:userId/update/:taskId', (req, res) => {
 })
 
 //Delete a task
-router.delete('/delete/:taskId', (req, res) => {
-    Task.deleteOne({_id: req.params.taskId})
-        .then(()=> res.status(200).send('Task deleted'))
-        .catch(err => res.status(400).send(err))
+router.delete('/:userId/delete/:taskId', (req, res) => {
+    // User.updateOne(
+    //         {_id: req.params.userId},
+    //         {$pull: {"todos.$[]._id": req.params.taskId}}
+    //         // {todos: {$elemMatch: {_id: req.params.taskId}}}
+    //     )
+    //     // .then(data => console.log(data))
+    //     // .catch(err => console.log(err))
+    //     .then(()=> res.status(200).send('Task deleted'))
+    //     .catch(err => res.status(400).send(err))
 })
 
 
