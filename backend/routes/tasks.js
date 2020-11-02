@@ -34,15 +34,14 @@ router.patch('/:userId/update/:taskId', (req, res) => {
 
 //Delete a task
 router.delete('/:userId/delete/:taskId', (req, res) => {
-    // User.updateOne(
-    //         {_id: req.params.userId},
-    //         {$pull: {"todos.$[]._id": req.params.taskId}}
-    //         // {todos: {$elemMatch: {_id: req.params.taskId}}}
-    //     )
-    //     // .then(data => console.log(data))
-    //     // .catch(err => console.log(err))
-    //     .then(()=> res.status(200).send('Task deleted'))
-    //     .catch(err => res.status(400).send(err))
+    User.updateOne(
+            {_id: req.params.userId},
+            {$pull: {todos: {_id: req.params.taskId}}}
+        )
+        .then(() => res.status(200).send('Task deleted'))
+        .catch(err => console.log(err))
+
+              
 })
 
 
