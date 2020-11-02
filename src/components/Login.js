@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import axios from '../axios';
+import { useAuthenticationValue } from '../AuthenticationContext';
 import '../styles/Login.css';
 
 function Login() {
+    const [, dispatch] = useAuthenticationValue();
     const history = useHistory();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -20,8 +22,13 @@ function Login() {
             method: 'post',
             url: '/user/login',
             data: user
-        }).then(() => history.push('/tasks'))
-          .catch(error => alert(error.message));
+        })
+        .then(result => {
+            localStorage.setItem('userId', result?.data?.user?.id);
+            history.push('/tasks')
+        })
+        // .then(() => history.push('/tasks'))
+        .catch(error => alert(error.message));
     }
 
     return (
