@@ -30,21 +30,22 @@ function Task({ todo }) {
     // Update description of task 
     const editTask = (id) => {
         setEditClicked(true);
-        const taskLabel = document.getElementById(id);
+        const selector = `label#_${id}`;
+        const taskLabel = document.querySelector(selector);
         taskLabel.contentEditable = true;
     }
 
     return (
         <li key={todo._id} className="taskList__todoItem">
-            <label id={todo._id} className="taskList__todoLabel">
-                <input 
-                    className="taskList__checkbox"
-                    id={todo._id} 
-                    type="checkbox" 
-                    value={todo.description} 
-                    checked={todo.checked}
-                    onChange={(e) => toggleTaskStatus(todo._id, todo.checked, e)}
-                />
+            <input 
+                className="taskList__checkbox"
+                id={todo._id} 
+                type="checkbox" 
+                value={todo.description} 
+                checked={todo.checked}
+                onChange={(e) => toggleTaskStatus(todo._id, todo.checked, e)}
+            />
+            <label id={`_${todo._id}`} className="taskList__todoLabel">
                 {todo.description} 
             </label>
             {!editClicked ? 
