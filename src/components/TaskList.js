@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import AddIcon from '@material-ui/icons/Add';
 import axios from '../axios';
 import '../styles/TaskList.css';
+import AddTask from './AddTask';
 import Task from './Task';
 
 function TaskList() {
     const userId = localStorage.getItem('userId');
-    const [task, setTask] = useState('');
     const [todos, setTodos] = useState([]);
 
     // Get task data from database
@@ -18,20 +17,6 @@ function TaskList() {
           .catch(error => console.log(error));
         
     }, [todos, userId]);
-
-    // Add task to database
-    const addTask = () => {
-        if(task){
-            axios({
-                method: 'patch',
-                url: '/tasks/' + userId + '/new',
-                data: { description: task }
-            }).then(res => console.log(res))
-              .catch(error => console.log(error));
-                
-            document.querySelector('input.taskList__taskInput').value = '';
-        }
-    }
 
     // Display tasks based on status
     const displayTasks = (checked) => {
@@ -74,18 +59,7 @@ function TaskList() {
             </div>
 
             {/* Add Task section */}
-            <div className="taskList__addTaskSection">
-                <input 
-                    className="taskList__taskInput"
-                    type="text" 
-                    placeholder="Enter task" 
-                    onChange={e => setTask(e.target.value)}
-                ></input>
-                <button className="taskList__addTask" onClick={addTask}>
-                    <AddIcon className="taskList__addIcon"/>
-                    <span className="taskList__add">Add Task</span>
-                </button>
-            </div>
+            <AddTask />
         </div>
     )
 }
