@@ -2,8 +2,9 @@ import React from 'react';
 
 function TaskHeader() {
     return (
-        <div>
-            
+        <div className="taskHeader">
+            <span>ToDo Manager</span>
+            <button>Log Out</button>
         </div>
     )
 }
