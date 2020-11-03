@@ -28,7 +28,7 @@ function Task({ todo }) {
     }
 
     return (
-        <li key={todo._id} className="taskList__todoItem">
+        <li key={todo._id} id={todo._id} className="taskList__todoItem">
             <label className="taskList__todoLabel">
                 <input 
                     className="taskList__checkbox"
