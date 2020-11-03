@@ -27,6 +27,13 @@ function Task({ todo }) {
         .catch(error => console.log(error));
     }
 
+    // Update description of task 
+    const editTask = (id) => {
+        setEditClicked(true);
+        const taskLabel = document.getElementById(id);
+        taskLabel.contentEditable = true;
+    }
+
     return (
         <li key={todo._id} className="taskList__todoItem">
             <label id={todo._id} className="taskList__todoLabel">
