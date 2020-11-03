@@ -1,10 +1,18 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 function TaskHeader() {
+    const history = useHistory();
+
+    const logOut = () => {
+        localStorage.removeItem('userId');
+        history.pushState('/');
+    }
+
     return (
         <div className="taskHeader">
             <span>ToDo Manager</span>
-            <button>Log Out</button>
+            <button onClick={logOut}>Log Out</button>
         </div>
     )
 }
