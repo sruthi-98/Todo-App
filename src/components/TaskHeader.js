@@ -6,7 +6,7 @@ function TaskHeader() {
 
     const logOut = () => {
         localStorage.removeItem('userId');
-        history.pushState('/');
+        history.push('/');
     }
 
     return (
