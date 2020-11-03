@@ -28,8 +28,8 @@ function Task({ todo }) {
     }
 
     return (
-        <li key={todo._id} id={todo._id} className="taskList__todoItem">
-            <label className="taskList__todoLabel">
+        <li key={todo._id} className="taskList__todoItem">
+            <label id={todo._id} className="taskList__todoLabel">
                 <input 
                     className="taskList__checkbox"
                     id={todo._id} 
@@ -41,7 +41,7 @@ function Task({ todo }) {
                 {todo.description} 
             </label>
             {!editClicked ? 
-                <EditIcon onClick={() => setEditClicked(true)}/> :
+                <EditIcon onClick={(e) => editTask(todo._id, e)}/> :
                 <SaveIcon onClick={() => setEditClicked(false)}/>
             }
             <DeleteIcon className="taskList_deleteTask" onClick={(e) => deleteTask(todo._id, e)} />
