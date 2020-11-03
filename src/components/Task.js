@@ -1,29 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from '../axios';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-const userId = localStorage.getItem('userId');
-
-// Delete task
-const deleteTask = (id) => {
-    axios({
-        method: 'delete',
-        url: '/tasks/' + userId + '/delete/' + id,
-    }).then(res => console.log(res))
-      .catch(error => console.log(error));
-}
-
-// Update status of task
-const toggleTaskStatus = (id, checked) => {
-    axios({
-        method: 'patch',
-        url: '/tasks/' + userId + '/update/' + id,
-        data: { checked: !checked }
-    }).then(res => console.log(res))
-      .catch(error => console.log(error));
-}
-
 function Task({ todo }) {
+    const userId = localStorage.getItem('userId');
+    const [editClicked, setEditClicked] = useState(false);
+
+    // Delete task
+    const deleteTask = (id) => {
+        axios({
+            method: 'delete',
+            url: '/tasks/' + userId + '/delete/' + id,
+        }).then(res => console.log(res))
+        .catch(error => console.log(error));
+    }
+
+    // Update status of task
+    const toggleTaskStatus = (id, checked) => {
+        axios({
+            method: 'patch',
+            url: '/tasks/' + userId + '/update/' + id,
+            data: { checked: !checked }
+        }).then(res => console.log(res))
+        .catch(error => console.log(error));
+    }
+
     return (
         <li key={todo._id} className="taskList__todoItem">
             <label className="taskList__todoLabel">
