@@ -22,11 +22,21 @@ router.get('/:userId', (req, res) => {
         .catch(err => res.status(400).send(err))
 })
 
-// Update a task
+// Update a task status
 router.patch('/:userId/update/:taskId', (req, res) => {
     User.findOneAndUpdate(
             {todos: {$elemMatch: {_id: req.params.taskId}}},
             {$set: {"todos.$.checked": req.body.checked}}
+        )
+        .then(() => res.status(200).send('Task updated'))
+        .catch(err => res.status(400).send(err))
+})
+
+// Update a task description
+router.patch('/:userId/update/desc/:taskId', (req, res) => {
+    User.findOneAndUpdate(
+            {todos: {$elemMatch: {_id: req.params.taskId}}},
+            {$set: {"todos.$.description": req.body.description}}
         )
         .then(() => res.status(200).send('Task updated'))
         .catch(err => res.status(400).send(err))
