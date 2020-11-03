@@ -3,6 +3,7 @@ import axios from '../axios';
 import '../styles/TaskList.css';
 import AddTask from './AddTask';
 import Task from './Task';
+import TaskHeader from './TaskHeader';
 
 function TaskList() {
     const userId = localStorage.getItem('userId');
@@ -35,6 +36,8 @@ function TaskList() {
 
     return (
         <div className="taskList">
+            <TaskHeader />
+
             {/* Pending Tasks */}
             <div className="taskList__section">
                 {pendingTasks.length > 0 ?
