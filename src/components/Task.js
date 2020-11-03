@@ -35,6 +35,20 @@ function Task({ todo }) {
         taskLabel.contentEditable = true;
     }
 
+    // Save description of task
+    const saveTask = (id) => {
+        setEditClicked(false);
+        const selector = `label#_${id}`;
+        const taskLabel = document.querySelector(selector);
+        taskLabel.contentEditable = false;
+        axios({
+            method: 'patch',
+            url: '/tasks/' + userId + '/update/desc/' + id,
+            data: { description: taskLabel.textContent }
+        }).then(res => console.log(res))
+        .catch(error => console.log(error));
+    }
+
     return (
         <li key={todo._id} className="taskList__todoItem">
             <input 
@@ -50,7 +64,7 @@ function Task({ todo }) {
             </label>
             {!editClicked ? 
                 <EditIcon onClick={(e) => editTask(todo._id, e)}/> :
-                <SaveIcon onClick={() => setEditClicked(false)}/>
+                <SaveIcon onClick={(e) => saveTask(todo._id, e)}/>
             }
             <DeleteIcon className="taskList_deleteTask" onClick={(e) => deleteTask(todo._id, e)} />
         </li>
