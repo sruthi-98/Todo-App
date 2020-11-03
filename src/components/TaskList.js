@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import AddIcon from '@material-ui/icons/Add';
-import DeleteIcon from '@material-ui/icons/Delete';
 import axios from '../axios';
 import '../styles/TaskList.css';
+import Task from './Task';
 
 function TaskList() {
     const userId = localStorage.getItem('userId');
@@ -33,45 +33,13 @@ function TaskList() {
         }
     }
 
-    // Delete task
-    const deleteTask = (id) => {
-        axios({
-            method: 'delete',
-            url: '/tasks/' + userId + '/delete/' + id,
-        }).then(res => console.log(res))
-          .catch(error => console.log(error));
-    }
-
-    // Update status of task
-    const toggleTaskStatus = (id, checked) => {
-        axios({
-            method: 'patch',
-            url: '/tasks/' + userId + '/update/' + id,
-            data: { checked: !checked }
-        }).then(res => console.log(res))
-          .catch(error => console.log(error));
-    }
-
     // Display tasks based on status
     const displayTasks = (checked) => {
         return todos.filter((todo) => {
             return checked === todo.checked;
         }).map((todo) => {
             return (
-                <li key={todo._id} className="taskList__todoItem">
-                    <label className="taskList__todoLabel">
-                        <input 
-                            className="taskList__checkbox"
-                            id={todo._id} 
-                            type="checkbox" 
-                            value={todo.description} 
-                            checked={todo.checked}
-                            onChange={(e) => toggleTaskStatus(todo._id, todo.checked, e)}
-                        />
-                        {todo.description} 
-                    </label>
-                    <DeleteIcon className="taskList_deleteTask" onClick={(e) => deleteTask(todo._id, e)} />
-                </li>
+                <Task todo={todo} />
             );
         });
     }
