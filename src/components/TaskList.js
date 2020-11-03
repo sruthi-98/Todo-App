@@ -43,7 +43,7 @@ function TaskList() {
     }
 
     // Update status of task
-    const changeHandler = (id, checked) => {
+    const toggleTaskStatus = (id, checked) => {
         axios({
             method: 'patch',
             url: '/tasks/' + userId + '/update/' + id,
@@ -66,7 +66,7 @@ function TaskList() {
                             type="checkbox" 
                             value={todo.description} 
                             checked={todo.checked}
-                            onChange={(e) => changeHandler(todo._id, todo.checked, e)}
+                            onChange={(e) => toggleTaskStatus(todo._id, todo.checked, e)}
                         />
                         {todo.description} 
                     </label>
