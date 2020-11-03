@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from '../axios';
 import EditIcon from '@material-ui/icons/Edit';
-import SaveIcon from '@material-ui/icons/Check';
+import SaveIcon from '@material-ui/icons/Done';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 function Task({ todo }) {
@@ -40,7 +40,10 @@ function Task({ todo }) {
                 />
                 {todo.description} 
             </label>
-            {!editClicked ? <EditIcon /> : <SaveIcon />}
+            {!editClicked ? 
+                <EditIcon onClick={() => setEditClicked(true)}/> :
+                <SaveIcon onClick={() => setEditClicked(false)}/>
+            }
             <DeleteIcon className="taskList_deleteTask" onClick={(e) => deleteTask(todo._id, e)} />
         </li>
     )
