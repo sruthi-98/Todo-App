@@ -5,6 +5,7 @@ import SignUp from './components/SignUp';
 import Login from './components/Login';
 import TaskList from './components/TaskList';
 import './App.css';
+import ProtetctedRoute from './ProtetctedRoute';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
             <SignUp />
           </Route>
           <Route path="/tasks">
-            <TaskList />
+            <ProtetctedRoute component={TaskList} />
           </Route>
           <Route path="/">
             <Home />
