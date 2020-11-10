@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../axios';
-import '../styles/TaskList.css';
 import AddTask from './AddTask';
 import Task from './Task';
 import TaskHeader from './TaskHeader';

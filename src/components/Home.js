@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/Home.css';
 import HomeHeader from './HomeHeader';
 
 function Home() {

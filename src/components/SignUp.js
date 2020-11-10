@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import axios from '../axios';
-import '../styles/SignUp.css';
 
 function SignUp() {
     const history = useHistory();

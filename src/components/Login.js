@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import axios from '../axios';
-import '../styles/Login.css';
 
 function Login() {
     const history = useHistory();
