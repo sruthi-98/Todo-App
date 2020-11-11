@@ -167,6 +167,7 @@ $fontColor: #121616;
 
         &:focus {
             border-bottom: 2px solid $primaryColor;
+            outline: none;
         }
     }
 
@@ -188,6 +189,49 @@ $fontColor: #121616;
         color: $secondaryColor;
         font-weight: 600;
     }
+}
+
+/* ---------------------------- Sign Up ---------------------------- */
+
+.signUp {
+    @extend .login;
+
+    &__header {
+        @extend .login__header;
+    }
+
+    &__container {
+        @extend .login__container;
+    }
+
+    &__title {
+        @extend .login__title;
+    }
+
+    &__formGroup {
+        @extend .login__formGroup;
+    }
+
+    &__formLabel {
+        @extend .login__formLabel;
+    }
+
+    &__formInput {
+        @extend .login__formInput;
+    }
+
+    &__button {
+        @extend .login__button;
+    }
+
+    &__login {
+        text-align: center;
+    }
+
+    &__link {
+        @extend .login__link;
+    }
+
 }
 
 

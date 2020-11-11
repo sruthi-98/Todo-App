@@ -33,7 +33,7 @@
   margin-top: 0.75rem;
 }
 
-.home__button, .login__button {
+.home__button, .login__button, .signUp__button {
   display: block;
   font-family: Roboto;
   font-size: clamp(0.5rem, 5vw, 1rem);
@@ -48,7 +48,7 @@
   cursor: pointer;
 }
 
-.home__button:hover, .login__button:hover {
+.home__button:hover, .login__button:hover, .signUp__button:hover {
   background-color: #0a574e;
 }
 
@@ -117,55 +117,56 @@
 }
 
 /* ---------------------------- Login ---------------------------- */
-.login {
+.login, .signUp {
   background-color: #E9E9E9;
   height: 100vh;
 }
 
-.login__header {
+.login__header, .signUp__header {
   padding: 1rem;
   font-size: clamp(1.25rem, 15vw, 1.5rem);
 }
 
-.login__container {
+.login__container, .signUp__container {
   margin-top: 3rem;
   padding-left: 2rem;
   padding-right: 2rem;
 }
 
-.login__title {
+.login__title, .signUp__title {
   color: #24285B;
   text-align: center;
   font-size: clamp(1rem, 10vw, 1.75rem);
   margin: 2rem 0 2rem 0;
 }
 
-.login__formGroup {
+.login__formGroup, .signUp__formGroup {
   margin: 3rem 1rem 3rem 1rem;
 }
 
-.login__formLabel, .login__formInput {
+.login__formLabel, .signUp__formLabel, .login__formInput, .signUp__formInput {
   display: block;
   width: 100%;
 }
 
-.login__formLabel {
+.login__formLabel, .signUp__formLabel {
   font-weight: 800;
   margin-bottom: 0.75rem;
   font-size: clamp(1rem, 10vw, 1rem);
 }
 
-.login__formInput {
+.login__formInput, .signUp__formInput {
   border: none;
   height: 2rem;
   padding: 5px;
 }
 
-.login__formInput:focus {
+.login__formInput:focus, .signUp__formInput:focus {
   border-bottom: 2px solid #0D7A6E;
+  outline: none;
 }
 
-.login__button {
+.login__button, .signUp__button {
   padding-left: 20px;
   padding-right: 20px;
   margin-top: 1.25rem;
@@ -177,9 +178,14 @@
   text-align: center;
 }
 
-.login__link {
+.login__link, .signUp__link {
   text-decoration: none;
   color: #24285B;
   font-weight: 600;
+}
+
+/* ---------------------------- Sign Up ---------------------------- */
+.signUp__login {
+  text-align: center;
 }
 /*# sourceMappingURL=main.css.map */
