@@ -29,25 +29,30 @@ function Login() {
 
     return (
         <div className="login">
-
+            <h1 className="login__title">ToDo Manager</h1>
+        
             <div className="login__container">
                 <h1>Log In</h1>
 
-                <form>
-                    <input 
-                        type="text" 
-                        value={email} 
-                        placeholder="E-mail"
-                        onChange={e => setEmail(e.target.value)}
-                    />
+                <form className="login__form">
+                    <div className="login__formGroup">
+                        <label>E-mail</label>
+                        <input 
+                            type="text" 
+                            value={email} 
+                            onChange={e => setEmail(e.target.value)}
+                        />
+                    </div>
 
-                    <input 
-                        type="password" 
-                        value={password} 
-                        placeholder="Password"
-                        onChange={e => setPassword(e.target.value)}
-                    />
-
+                    <div className="login__formGroup">
+                        <label>Password</label>
+                        <input 
+                            type="password" 
+                            value={password} 
+                            onChange={e => setPassword(e.target.value)}
+                        />
+                    </div>
+                
                     <button
                         type="submit"
                         onClick={login}
