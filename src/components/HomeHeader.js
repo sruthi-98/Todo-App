@@ -7,13 +7,19 @@ function HomeHeader() {
     const history = useHistory();
     const [menuClicked, setMenuClicked] = useState(false);
 
+    const showMenu = (condition) => {
+        setMenuClicked(condition);
+        const nav = document.getElementsByClassName('homeHeader__nav')[0];
+        nav.style.display = condition ? 'block' : 'none';
+    }
+
     return (
         <div className="homeHeader">
             <div className="homeHeader__section">
                 <span className="homeHeader__title">ToDo Manager</span>
                 {!menuClicked ?
-                    <MenuIcon className="homeHeader__menu"></MenuIcon> :
-                    <CloseIcon className="homeHeader__close"></CloseIcon>
+                    <MenuIcon className="homeHeader__menu" onClick={(e) => showMenu(true, e)}></MenuIcon> :
+                    <CloseIcon className="homeHeader__close" onClick={(e) => showMenu(false, e)}></CloseIcon>
                 }
                 
             </div>
