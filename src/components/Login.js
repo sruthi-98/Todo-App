@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import axios from '../axios';
 
 function Login() {
@@ -55,6 +55,10 @@ function Login() {
                     >
                         Log In
                     </button>
+
+                    <p className="login__signup">
+                        Dont’t have an account? Sign up <Link to='/signup'>here</Link>
+                    </p>
                 </form>
             </div>
         </div>
