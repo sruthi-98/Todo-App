@@ -37,6 +37,9 @@ function TaskList() {
         <div className="taskList">
             <TaskHeader />
 
+            {/* Add Task section */}
+            <AddTask />
+
             {/* Pending Tasks */}
             <div className="taskList__section">
                 {pendingTasks.length > 0 ?
