@@ -5,8 +5,8 @@ function Home() {
     return (
         <div className="home">
             <HomeHeader />
-            <h1>Organize with us</h1>
-            <button>Get Started</button>
+            <h1 className="home__mainHeading">Organize with us</h1>
+            <button className="home__button">Get Started</button>
         </div>
     )
 }
