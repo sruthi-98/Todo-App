@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
 import { useHistory } from 'react-router-dom';
 
 function HomeHeader() {
     const history = useHistory();
+    const [menuClicked, setMenuClicked] = useState(false);
 
     return (
         <div className="homeHeader">
-            <span className="homeHeader__title">ToDo Manager</span>
-            <MenuIcon className="homeHeader__menu"></MenuIcon>
+            <div className="homeHeader__section">
+                <span className="homeHeader__title">ToDo Manager</span>
+                <MenuIcon className="homeHeader__menu"></MenuIcon>
+            </div>
             <nav className="homeHeader__nav">
                 <button 
                     className="homeHeader__login"
