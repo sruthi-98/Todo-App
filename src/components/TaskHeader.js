@@ -1,4 +1,5 @@
 import React from 'react';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { useHistory } from 'react-router-dom';
 
 function TaskHeader() {
@@ -11,8 +12,10 @@ function TaskHeader() {
 
     return (
         <div className="taskHeader">
-            <span>ToDo Manager</span>
-            <button onClick={logOut}>Log Out</button>
+            <div className="taskHeader__section">
+                <span className="taskHeader__title">ToDo Manager</span>
+                <ExitToAppIcon className="taskHeader__exit" onClick={logOut}></ExitToAppIcon>
+            </div>
         </div>
     )
 }
