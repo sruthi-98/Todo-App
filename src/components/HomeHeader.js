@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
 import { useHistory } from 'react-router-dom';
 
 function HomeHeader() {
@@ -10,7 +11,11 @@ function HomeHeader() {
         <div className="homeHeader">
             <div className="homeHeader__section">
                 <span className="homeHeader__title">ToDo Manager</span>
-                <MenuIcon className="homeHeader__menu"></MenuIcon>
+                {!menuClicked ?
+                    <MenuIcon className="homeHeader__menu"></MenuIcon> :
+                    <CloseIcon className="homeHeader__close"></CloseIcon>
+                }
+                
             </div>
             <nav className="homeHeader__nav">
                 <button 
