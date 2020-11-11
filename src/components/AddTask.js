@@ -22,15 +22,15 @@ function AddTask() {
     return (
         <div className="taskList__addTaskSection">
             <h2 className="taskList__title">Add Task</h2>
-            <input 
-                className="taskList__taskInput"
-                type="text" 
-                placeholder="Enter task" 
-                onChange={e => setTask(e.target.value)}
-            ></input>
-            <button className="taskList__addTask" onClick={addTask}>
-                <span className="taskList__add">Add</span>
-            </button>
+            <div className="taskList__section">
+                <input 
+                    className="taskList__taskInput"
+                    type="text" 
+                    placeholder="Enter task" 
+                    onChange={e => setTask(e.target.value)}
+                ></input>
+                <button className="taskList__add" onClick={addTask}>Add</button>
+            </div>
         </div>
     )
 }
