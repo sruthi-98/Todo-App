@@ -1,10 +1,15 @@
 /* Fonts */
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600,800");
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,900");
 /* Variables */
+/* ---------------------------- Whole document ---------------------------- */
+* {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
 /* ---------------------------- Home ---------------------------- */
 .home {
-  font-family: 'Montserrat';
   color: #121616;
   height: 100vh;
   width: 100vw;
@@ -28,9 +33,10 @@
   margin-top: 0.75rem;
 }
 
-.home__button {
+.home__button, .login__button {
   display: block;
   font-family: Roboto;
+  font-size: clamp(0.5rem, 5vw, 1rem);
   margin: 0 auto;
   background-color: #0D7A6E;
   border-radius: 5px;
@@ -42,7 +48,7 @@
   cursor: pointer;
 }
 
-.home__button:hover {
+.home__button:hover, .login__button:hover {
   background-color: #0a574e;
 }
 
@@ -108,5 +114,72 @@
 .homeHeader__login:hover, .homeHeader__signup:hover {
   background-color: #E9E9E9;
   cursor: pointer;
+}
+
+/* ---------------------------- Login ---------------------------- */
+.login {
+  background-color: #E9E9E9;
+  height: 100vh;
+}
+
+.login__header {
+  padding: 1rem;
+  font-size: clamp(1.25rem, 15vw, 1.5rem);
+}
+
+.login__container {
+  margin-top: 3rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.login__title {
+  color: #24285B;
+  text-align: center;
+  font-size: clamp(1rem, 10vw, 1.75rem);
+  margin: 2rem 0 2rem 0;
+}
+
+.login__formGroup {
+  margin: 3rem 1rem 3rem 1rem;
+}
+
+.login__formLabel, .login__formInput {
+  display: block;
+  width: 100%;
+}
+
+.login__formLabel {
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  font-size: clamp(1rem, 10vw, 1rem);
+}
+
+.login__formInput {
+  border: none;
+  height: 2rem;
+  padding: 5px;
+}
+
+.login__formInput:focus {
+  border-bottom: 2px solid #0D7A6E;
+}
+
+.login__button {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  width: 100%;
+}
+
+.login__signup {
+  text-align: center;
+}
+
+.login__link {
+  text-decoration: none;
+  color: #24285B;
+  font-weight: 600;
 }
 /*# sourceMappingURL=main.css.map */
