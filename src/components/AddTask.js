@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from '../axios';
-import AddIcon from '@material-ui/icons/Add';
 
 function AddTask() {
     const userId = localStorage.getItem('userId');
@@ -22,6 +21,7 @@ function AddTask() {
 
     return (
         <div className="taskList__addTaskSection">
+            <h2 className="taskList__title">Add Task</h2>
             <input 
                 className="taskList__taskInput"
                 type="text" 
@@ -29,8 +29,7 @@ function AddTask() {
                 onChange={e => setTask(e.target.value)}
             ></input>
             <button className="taskList__addTask" onClick={addTask}>
-                <AddIcon className="taskList__addIcon"/>
-                <span className="taskList__add">Add Task</span>
+                <span className="taskList__add">Add</span>
             </button>
         </div>
     )
