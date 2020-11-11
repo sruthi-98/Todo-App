@@ -32,7 +32,7 @@ function SignUp() {
             <h1 className="signUp__header">ToDo Manager</h1>
 
             <div className="signUp__container">
-                <h1 lassName="signUp__title">Sign Up</h1>
+                <h1 className="signUp__title">Sign Up</h1>
 
                 <form className="signUp__form">
                     <div className="signUp__formGroup">
