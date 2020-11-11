@@ -63,10 +63,10 @@ function Task({ todo }) {
                 {todo.description} 
             </label>
             {!editClicked ? 
-                <EditIcon onClick={(e) => editTask(todo._id, e)}/> :
-                <SaveIcon onClick={(e) => saveTask(todo._id, e)}/>
+                <EditIcon className="taskList__edit" onClick={(e) => editTask(todo._id, e)}/> :
+                <SaveIcon className="taskList__save" onClick={(e) => saveTask(todo._id, e)}/>
             }
-            <DeleteIcon className="taskList_deleteTask" onClick={(e) => deleteTask(todo._id, e)} />
+            <DeleteIcon className="taskList__delete" onClick={(e) => deleteTask(todo._id, e)} />
         </li>
     )
 }
