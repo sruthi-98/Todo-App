@@ -6,6 +6,7 @@
 /* Variables */
 
 $primaryColor: #0D7A6E;
+$primaryColorDark: #0a574e;
 $secondaryColor: #24285B;
 $bgColor: #E9E9E9;
 $fontColor: #121616;
@@ -23,7 +24,7 @@ $fontColor: #121616;
         text-align: center;
         font-size: clamp(1.5rem, 15vw, 2rem);
         font-weight: 800;
-        margin-top: 5rem;
+        margin-top: 6rem;
         margin-bottom: 0;
     }
 
@@ -45,6 +46,12 @@ $fontColor: #121616;
         color: #FFFFFF;
         font-weight: 900;
         margin-top: 2rem;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $primaryColorDark;
+        }
     }
 
     &__image {
@@ -55,15 +62,20 @@ $fontColor: #121616;
     }
 }
 
+/* ---------------------------- Home Header ---------------------------- */
+
 .homeHeader {
     width: 100vw;
     height: 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
     box-sizing: border-box;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+
+    &__section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: inherit;
+        padding: 0 2rem;
+    }
 
     &__title {
         font-weight: 800;
@@ -71,11 +83,35 @@ $fontColor: #121616;
         font-size: clamp(1rem, 10vw, 1.15rem);
     }
 
-    &__menu {
+    &__menu, &__close {
         color: $secondaryColor;
+        cursor: pointer;
     }
 
     &__nav {
         display: none;
+        position: relative;
+        height: auto;
+        width: inherit;
+    }
+
+    &__login, &__signup {
+        color: $primaryColor;
+        font-size: 1rem;
+        padding: 0.75rem 2rem;
+        width: inherit;
+        text-align: start;
+        border: none;
+        background-color: transparent;
+        display: block;
+        border-left: 5px solid $primaryColor;
+
+        &:hover {
+            background-color: $bgColor;
+            cursor: pointer;
+        }
+
     }
 }
+
+

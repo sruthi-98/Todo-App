@@ -16,7 +16,7 @@
   text-align: center;
   font-size: clamp(1.5rem, 15vw, 2rem);
   font-weight: 800;
-  margin-top: 5rem;
+  margin-top: 6rem;
   margin-bottom: 0;
 }
 
@@ -38,6 +38,12 @@
   color: #FFFFFF;
   font-weight: 900;
   margin-top: 2rem;
+  border: none;
+  cursor: pointer;
+}
+
+.home__button:hover {
+  background-color: #0a574e;
 }
 
 .home__image {
@@ -47,9 +53,15 @@
   display: block;
 }
 
+/* ---------------------------- Home Header ---------------------------- */
 .homeHeader {
   width: 100vw;
   height: 4rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.homeHeader__section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -59,11 +71,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 20px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  -webkit-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
-          box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+  height: inherit;
+  padding: 0 2rem;
 }
 
 .homeHeader__title {
@@ -72,11 +81,32 @@
   font-size: clamp(1rem, 10vw, 1.15rem);
 }
 
-.homeHeader__menu {
+.homeHeader__menu, .homeHeader__close {
   color: #24285B;
+  cursor: pointer;
 }
 
 .homeHeader__nav {
   display: none;
+  position: relative;
+  height: auto;
+  width: inherit;
+}
+
+.homeHeader__login, .homeHeader__signup {
+  color: #0D7A6E;
+  font-size: 1rem;
+  padding: 0.75rem 2rem;
+  width: inherit;
+  text-align: start;
+  border: none;
+  background-color: transparent;
+  display: block;
+  border-left: 5px solid #0D7A6E;
+}
+
+.homeHeader__login:hover, .homeHeader__signup:hover {
+  background-color: #E9E9E9;
+  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */
