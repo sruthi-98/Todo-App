@@ -6,9 +6,21 @@ function HomeHeader() {
 
     return (
         <div className="homeHeader">
-            <span>ToDo Manager</span>
-            <button onClick={() => history.push('/login')}>Login</button>
-            <button onClick={() => history.push('/signup')}>Sign Up</button>
+            <span className="homeHeader__title">ToDo Manager</span>
+            <nav className="homeHeader__nav">
+                <button 
+                    className="homeHeader__login"
+                    onClick={() => history.push('/login')}
+                >
+                    Login
+                </button>
+                <button 
+                    className="homeHeader__signup"
+                    onClick={() => history.push('/signup')}
+                >
+                    Sign Up
+                </button>
+            </nav>
         </div>
     )
 }
