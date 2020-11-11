@@ -234,4 +234,22 @@ $fontColor: #121616;
 
 }
 
+/* ---------------------------- Task Header ---------------------------- */
+
+.taskHeader {
+    @extend .homeHeader;
+
+    &__section {
+        @extend .homeHeader__section;
+    }
+
+    &__title {
+        @extend .homeHeader__title;
+    }
+
+    &__exit {
+        @extend .homeHeader__menu;
+    }
+}
+
 
