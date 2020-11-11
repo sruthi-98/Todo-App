@@ -1,0 +1,81 @@
+/* Fonts */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,900');
+
+/* Variables */
+
+$primaryColor: #0D7A6E;
+$secondaryColor: #24285B;
+$bgColor: #E9E9E9;
+$fontColor: #121616;
+
+/* ---------------------------- Home ---------------------------- */
+
+.home {
+    font-family: 'Montserrat';
+    color: $fontColor;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+
+    &__mainHeading {
+        text-align: center;
+        font-size: clamp(1.5rem, 15vw, 2rem);
+        font-weight: 800;
+        margin-top: 5rem;
+        margin-bottom: 0;
+    }
+
+    &__subHeading {
+        display: block;
+        text-align: center;
+        font-weight: 400;
+        font-size: clamp(0.75rem, 10vw, 1.15rem);
+        margin-top: 0.75rem;
+    }
+
+    &__button {
+        display: block;
+        font-family: Roboto;
+        margin: 0 auto;
+        background-color: $primaryColor;
+        border-radius: 5px;
+        padding: 15px;
+        color: #FFFFFF;
+        font-weight: 900;
+        margin-top: 2rem;
+    }
+
+    &__image {
+        width: 400px;
+        height: 300px;
+        margin: 4rem auto 0 auto;
+        display: block;
+    }
+}
+
+.homeHeader {
+    width: 100vw;
+    height: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+
+    &__title {
+        font-weight: 800;
+        color: $secondaryColor;
+        font-size: clamp(1rem, 10vw, 1.15rem);
+    }
+
+    &__menu {
+        color: $secondaryColor;
+    }
+
+    &__nav {
+        display: none;
+    }
+}

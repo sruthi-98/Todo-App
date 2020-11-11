@@ -1,0 +1,82 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,900");
+/* Variables */
+/* ---------------------------- Home ---------------------------- */
+.home {
+  font-family: 'Montserrat';
+  color: #121616;
+  height: 100vh;
+  width: 100vw;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.home__mainHeading {
+  text-align: center;
+  font-size: clamp(1.5rem, 15vw, 2rem);
+  font-weight: 800;
+  margin-top: 5rem;
+  margin-bottom: 0;
+}
+
+.home__subHeading {
+  display: block;
+  text-align: center;
+  font-weight: 400;
+  font-size: clamp(0.75rem, 10vw, 1.15rem);
+  margin-top: 0.75rem;
+}
+
+.home__button {
+  display: block;
+  font-family: Roboto;
+  margin: 0 auto;
+  background-color: #0D7A6E;
+  border-radius: 5px;
+  padding: 15px;
+  color: #FFFFFF;
+  font-weight: 900;
+  margin-top: 2rem;
+}
+
+.home__image {
+  width: 400px;
+  height: 300px;
+  margin: 4rem auto 0 auto;
+  display: block;
+}
+
+.homeHeader {
+  width: 100vw;
+  height: 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.homeHeader__title {
+  font-weight: 800;
+  color: #24285B;
+  font-size: clamp(1rem, 10vw, 1.15rem);
+}
+
+.homeHeader__menu {
+  color: #24285B;
+}
+
+.homeHeader__nav {
+  display: none;
+}
+/*# sourceMappingURL=main.css.map */
