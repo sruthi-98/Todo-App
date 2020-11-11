@@ -45,7 +45,7 @@ function TaskList() {
                 {pendingTasks.length > 0 ?
                     <div className="taskList__pending">
                         <h2 className="taskList__title">Pending Tasks</h2>
-                        <ul className="taskList__list">{pendingTasks}</ul>
+                        <ul className="taskList__list taskList__list--pending">{pendingTasks}</ul>
                     </div>
                     :
                     <h3 className="taskList__fallback">You don't have any pending tasks. Yaaaaayyyyy!!!!!!!!</h3>
@@ -57,14 +57,11 @@ function TaskList() {
                 {completedTasks.length > 0 &&
                     <div className="taskList__completed">
                         <h2 className="taskList__title">Completed Tasks</h2>
-                        <ul className="taskList__list">{completedTasks}</ul>
+                        <ul className="taskList__list taskList__list--completed">{completedTasks}</ul>
                     </div>
                 }
                 
             </div>
-
-            {/* Add Task section */}
-            <AddTask />
         </div>
     )
 }
