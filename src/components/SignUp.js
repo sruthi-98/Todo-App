@@ -29,46 +29,65 @@ function SignUp() {
 
     return (
         <div className="signUp">
+            <h1 className="signUp__header">ToDo Manager</h1>
 
             <div className="signUp__container">
-                <h1>Sign Up</h1>
+                <h1 lassName="signUp__title">Sign Up</h1>
 
-                <form>
-                    <input 
-                        type="text" 
-                        value={firstName} 
-                        placeholder="First Name"
-                        onChange={e => setFirstName(e.target.value)}
-                    />
+                <form className="signUp__form">
+                    <div className="signUp__formGroup">
+                        <label className="signUp__formLabel">First Name</label>
+                        <input 
+                            className="signUp__formInput"
+                            type="text" 
+                            value={firstName} 
+                            onChange={e => setFirstName(e.target.value)}
+                        />
+                    </div>
 
-                    <input 
-                        type="text" 
-                        value={lastName} 
-                        placeholder="Second Name"
-                        onChange={e => setLastName(e.target.value)}
-                    />
+                    <div className="signUp__formGroup">
+                        <label className="signUp__formLabel">Last Name</label>
+                        <input 
+                            className="signUp__formInput"
+                            type="text" 
+                            value={lastName} 
+                            onChange={e => setLastName(e.target.value)}
+                        />
+                    </div>
 
-                    <input 
-                        type="text" 
-                        value={email} 
-                        placeholder="E-mail"
-                        onChange={e => setEmail(e.target.value)}
-                    />
+                    <div className="signUp__formGroup">
+                        <label className="signUp__formLabel">E-mail</label>
+                        <input 
+                            className="signUp__formInput"
+                            type="text" 
+                            value={email} 
+                            onChange={e => setEmail(e.target.value)}
+                        />
+                    </div>
 
-                    <input 
-                        type="password" 
-                        value={password} 
-                        placeholder="Password"
-                        onChange={e => setPassword(e.target.value)}
-                    />
+                    <div className="signUp__formGroup">
+                        <label className="signUp__formLabel">Password</label>
+                        <input 
+                            className="signUp__formInput"
+                            type="password" 
+                            value={password} 
+                            onChange={e => setPassword(e.target.value)}
+                        />
+                    </div>
 
-                    <button
-                        type="submit"
-                        onClick={signUp}
-                        className="signUp__button"
-                    >
-                        Sign Up
-                    </button>
+                    <div className="signUp__formGroup">
+                        <button
+                            type="submit"
+                            onClick={signUp}
+                            className="signUp__button"
+                        >
+                            Sign Up
+                        </button>
+
+                        <p className="signUp__login">
+                            Already have an account? Log in <Link className="signUp__link" to='/login'>here</Link>
+                        </p>
+                    </div>
                 </form>
             </div>
         </div>
