@@ -260,6 +260,11 @@
   display: flex;
 }
 
+.taskList__todoItem label:focus {
+  border-bottom: 1px solid #555;
+  outline: none;
+}
+
 .taskList__todoLabel {
   margin: auto 15px;
   -webkit-box-flex: 0.8;
@@ -267,10 +272,15 @@
           flex: 0.8;
 }
 
+.taskList__checkbox {
+  cursor: pointer;
+}
+
 .taskList__edit, .taskList__save, .taskList__delete {
   -webkit-box-flex: 0.1;
       -ms-flex: 0.1;
           flex: 0.1;
   margin: auto 0;
+  cursor: pointer;
 }
 /*# sourceMappingURL=main.css.map */

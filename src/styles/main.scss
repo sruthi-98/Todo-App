@@ -317,6 +317,11 @@ $fontColor: #121616;
         padding: 20px;
         border-radius: 5px;
         display: flex;
+
+        label:focus {
+            border-bottom: 1px solid #555;
+            outline: none;
+        }
     }
 
     &__todoLabel {
@@ -324,12 +329,19 @@ $fontColor: #121616;
         flex: 0.8;
     }
 
+    &__checkbox {
+        cursor: pointer;
+    }
+
     &__edit, &__save, &__delete {
         flex: 0.1;
         margin: auto 0;
+        cursor: pointer;
     }
 
 }
+
+
 
 
 
