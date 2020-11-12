@@ -33,7 +33,7 @@
   margin-top: 0.75rem;
 }
 
-.home__button, .login__button, .signUp__button {
+.home__button, .login__button, .signUp__button, .taskList__add {
   display: block;
   font-family: Roboto;
   font-size: clamp(0.5rem, 5vw, 1rem);
@@ -48,7 +48,7 @@
   cursor: pointer;
 }
 
-.home__button:hover, .login__button:hover, .signUp__button:hover {
+.home__button:hover, .login__button:hover, .signUp__button:hover, .taskList__add:hover {
   background-color: #0a574e;
 }
 
@@ -190,4 +190,87 @@
 }
 
 /* ---------------------------- Task Header ---------------------------- */
+.taskHeader {
+  -webkit-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+/* ---------------------------- Task Section ---------------------------- */
+.taskList__section {
+  padding: 1rem 2.5rem;
+  margin-top: 1rem;
+}
+
+.taskList__title {
+  text-transform: uppercase;
+  font-weight: 800;
+  border-bottom: 2px solid black;
+  padding-bottom: 5px;
+}
+
+.taskList__addTaskSection {
+  margin-top: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.taskList__taskInput {
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-right: 0.5rem;
+  padding: 10px;
+}
+
+.taskList__add {
+  margin-top: 0;
+  padding: 15px 25px;
+}
+
+.taskList__list {
+  list-style: none;
+  margin-top: 1.5rem;
+  padding: 0;
+}
+
+.taskList__list--pending .taskList__todoItem {
+  background-color: rgba(67, 190, 177, 0.31);
+}
+
+.taskList__list--completed .taskList__todoItem {
+  background-color: rgba(45, 48, 71, 0.26);
+}
+
+.taskList__list--completed .taskList__todoLabel {
+  text-decoration: line-through;
+}
+
+.taskList__todoItem {
+  margin-bottom: 1rem;
+  padding: 20px;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.taskList__todoLabel {
+  margin: auto 15px;
+  -webkit-box-flex: 0.8;
+      -ms-flex: 0.8;
+          flex: 0.8;
+}
+
+.taskList__edit, .taskList__save, .taskList__delete {
+  -webkit-box-flex: 0.1;
+      -ms-flex: 0.1;
+          flex: 0.1;
+  margin: auto 0;
+}
 /*# sourceMappingURL=main.css.map */

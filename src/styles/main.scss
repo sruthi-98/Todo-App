@@ -238,6 +238,8 @@ $fontColor: #121616;
 
 .taskHeader {
     @extend .homeHeader;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
 
     &__section {
         @extend .homeHeader__section;
@@ -251,5 +253,83 @@ $fontColor: #121616;
         @extend .homeHeader__menu;
     }
 }
+
+/* ---------------------------- Task Section ---------------------------- */
+
+.taskList {
+    &__section {
+        padding: 1rem 2.5rem;
+        margin-top: 1rem;
+    }
+
+    &__title {
+        text-transform: uppercase;
+        font-weight: 800;
+        border-bottom: 2px solid black;
+        padding-bottom: 5px;
+    }
+
+    &__addTaskSection {
+        margin-top: 1.5rem;
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    &__taskInput {
+        width: 100%;
+        border: 1px solid black;
+        border-radius: 5px;
+        margin-right: 0.5rem;
+        padding: 10px;
+    }
+
+    &__add {
+        @extend .home__button;
+        margin-top: 0;
+        padding: 15px 25px;
+    }
+
+    &__list {
+        list-style: none;
+        margin-top: 1.5rem;
+        padding: 0;
+
+        &--pending {
+            .taskList__todoItem {
+                background-color: rgba(67, 190, 177, 0.31);
+            }
+        }
+
+        &--completed {
+            .taskList__todoItem {
+                background-color: rgba(45, 48, 71, 0.26);
+            }
+
+            .taskList__todoLabel {
+                text-decoration: line-through;
+            }
+        }
+    }
+
+    &__todoItem {
+        margin-bottom: 1rem;
+        padding: 20px;
+        border-radius: 5px;
+        display: flex;
+    }
+
+    &__todoLabel {
+        margin: auto 15px;
+        flex: 0.8;
+    }
+
+    &__edit, &__save, &__delete {
+        flex: 0.1;
+        margin: auto 0;
+    }
+
+}
+
 
 
