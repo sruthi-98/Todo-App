@@ -20,9 +20,9 @@ function AddTask() {
     }
 
     return (
-        <div className="taskList__addTaskSection">
+        <div className="taskList__section">
             <h2 className="taskList__title">Add Task</h2>
-            <div className="taskList__section">
+            <div className="taskList__addTaskSection">
                 <input 
                     className="taskList__taskInput"
                     type="text" 
