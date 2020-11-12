@@ -11,6 +11,16 @@ $secondaryColor: #24285B;
 $bgColor: #E9E9E9;
 $fontColor: #121616;
 
+$desktop: 640px;
+
+/* Mixins */
+
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+       @content 
+    }
+}
+
 
 /* ---------------------------- Whole document ---------------------------- */
 * {
@@ -340,7 +350,6 @@ $fontColor: #121616;
     }
 
 }
-
 
 
 
