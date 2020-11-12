@@ -18,20 +18,39 @@
           box-sizing: border-box;
 }
 
+@media (min-width: 786px) {
+  .home__section {
+    grid-area: section;
+    margin-left: 2rem;
+  }
+}
+
 .home__mainHeading {
   text-align: center;
-  font-size: clamp(1.5rem, 15vw, 2rem);
+  font-size: clamp(2.25rem, 6vw, 3rem);
   font-weight: 800;
   margin-top: 6rem;
   margin-bottom: 0;
+}
+
+@media (min-width: 786px) {
+  .home__mainHeading {
+    text-align: left;
+  }
 }
 
 .home__subHeading {
   display: block;
   text-align: center;
   font-weight: 400;
-  font-size: clamp(0.75rem, 10vw, 1.15rem);
+  font-size: clamp(1rem, 3vw, 1.5rem);
   margin-top: 0.75rem;
+}
+
+@media (min-width: 786px) {
+  .home__subHeading {
+    text-align: left;
+  }
 }
 
 .home__button, .login__button, .signUp__button, .taskList__add {
@@ -41,16 +60,25 @@
   margin: 0 auto;
   background-color: #0D7A6E;
   border-radius: 5px;
-  padding: 15px;
+  padding: calc(min(5vw, 20px));
   color: #FFFFFF;
   font-weight: 900;
   margin-top: 2rem;
+  height: 3.25rem;
   border: none;
   cursor: pointer;
+  height: auto;
 }
 
 .home__button:hover, .login__button:hover, .signUp__button:hover, .taskList__add:hover {
   background-color: #0a574e;
+}
+
+@media (min-width: 786px) {
+  .home__button, .login__button, .signUp__button, .taskList__add {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 .home__image {
@@ -60,12 +88,55 @@
   display: block;
 }
 
+@media (min-width: 786px) {
+  .home__image {
+    grid-area: image;
+    width: 600px;
+    height: 450px;
+    margin-top: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .home__image {
+    width: 700px;
+    height: 525px;
+  }
+}
+
+@media (min-width: 786px) {
+  .home {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr (4fr)[2] 1fr;
+        grid-template-columns: 1fr repeat(2, 4fr) 1fr;
+    -ms-grid-rows: auto auto;
+        grid-template-rows: auto auto;
+        grid-template-areas: "header header header header" ". section image .";
+  }
+}
+
 /* ---------------------------- Home Header ---------------------------- */
 .homeHeader, .taskHeader {
   width: 100vw;
-  height: 4rem;
+  height: 6rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  -webkit-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 786px) {
+  .homeHeader, .taskHeader {
+    grid-area: header;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 0 5.5rem;
+  }
 }
 
 .homeHeader__section, .taskHeader__section {
@@ -82,15 +153,27 @@
   padding: 0 2rem;
 }
 
+@media (min-width: 786px) {
+  .homeHeader__section, .taskHeader__section {
+    grid-area: header;
+  }
+}
+
 .homeHeader__title, .taskHeader__title {
   font-weight: 800;
   color: #24285B;
-  font-size: clamp(1rem, 10vw, 1.15rem);
+  font-size: clamp(1rem, 10vw, 1.8rem);
 }
 
 .homeHeader__menu, .taskHeader__exit, .homeHeader__close {
   color: #24285B;
   cursor: pointer;
+}
+
+@media (min-width: 786px) {
+  .homeHeader__menu, .taskHeader__exit, .homeHeader__close {
+    display: none !important;
+  }
 }
 
 .homeHeader__nav {
@@ -100,26 +183,51 @@
   width: inherit;
 }
 
+@media (min-width: 786px) {
+  .homeHeader__nav {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: auto;
+  }
+}
+
 .homeHeader__login, .homeHeader__signup {
   color: #0D7A6E;
-  font-size: 1rem;
+  font-size: clamp(1rem, 3vw, 1.2rem);
   padding: 0.75rem 2rem;
+  text-transform: uppercase;
   width: inherit;
   text-align: start;
   border: none;
-  background-color: transparent;
+  background-color: #e9e9e9;
   display: block;
   border-left: 5px solid #0D7A6E;
 }
 
 .homeHeader__login:hover, .homeHeader__signup:hover {
-  background-color: #E9E9E9;
+  background-color: #c5c4c4;
   cursor: pointer;
+}
+
+@media (min-width: 786px) {
+  .homeHeader__login:hover, .homeHeader__signup:hover {
+    background-color: transparent;
+  }
+}
+
+@media (min-width: 786px) {
+  .homeHeader__login, .homeHeader__signup {
+    background-color: none;
+    border: none;
+    font-weight: 800;
+    background-color: transparent;
+  }
 }
 
 /* ---------------------------- Login ---------------------------- */
 .login, .signUp {
-  background-color: #E9E9E9;
+  background-color: #e9e9e9;
   height: 100vh;
 }
 

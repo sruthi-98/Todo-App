@@ -8,21 +8,30 @@
 $primaryColor: #0D7A6E;
 $primaryColorDark: #0a574e;
 $secondaryColor: #24285B;
-$bgColor: #E9E9E9;
+$bgColor: #e9e9e9;
+$bgColorDark: #c5c4c4;
 $fontColor: #121616;
 
-$desktop: 640px;
+$tablet: 786px;
+$desktop: 1200px;
 
 /* Mixins */
 
+@mixin tablet {
+    @media (min-width: #{$tablet}) {
+       @content;
+    }
+}
+
 @mixin desktop {
     @media (min-width: #{$desktop}) {
-       @content 
+       @content;
     }
 }
 
 
 /* ---------------------------- Whole document ---------------------------- */
+
 * {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
@@ -36,20 +45,35 @@ $desktop: 640px;
     width: 100vw;
     box-sizing: border-box;
 
+    &__section {
+        @include tablet {
+            grid-area: section;
+            margin-left: 2rem;
+        }
+    }
+
     &__mainHeading {
         text-align: center;
-        font-size: clamp(1.5rem, 15vw, 2rem);
+        font-size: clamp(2.25rem, 6vw, 3rem);
         font-weight: 800;
         margin-top: 6rem;
         margin-bottom: 0;
+
+        @include tablet {
+            text-align: left;
+        }
     }
 
     &__subHeading {
-        display: block;
+        display: block; 
         text-align: center;
         font-weight: 400;
-        font-size: clamp(0.75rem, 10vw, 1.15rem);
+        font-size: clamp(1rem, 3vw, 1.5rem);
         margin-top: 0.75rem;
+
+        @include tablet {
+            text-align: left;
+        }
     }
 
     &__button {
@@ -59,15 +83,22 @@ $desktop: 640px;
         margin: 0 auto;
         background-color: $primaryColor;
         border-radius: 5px;
-        padding: 15px;
+        padding: calc(min(5vw, 20px));
         color: #FFFFFF;
         font-weight: 900;
         margin-top: 2rem;
+        height: 3.25rem;
         border: none;
         cursor: pointer;
+        height: auto;
 
         &:hover {
             background-color: $primaryColorDark;
+        }
+
+        @include tablet {
+            margin-left: 0;
+            margin-right: 0;
         }
     }
 
@@ -76,6 +107,28 @@ $desktop: 640px;
         height: 300px;
         margin: 4rem auto 0 auto;
         display: block;
+
+        @include tablet {
+            grid-area: image;
+            width: 600px;
+            height: 450px;
+            margin-top: 0;
+        }
+
+        @include desktop {
+            width: 700px;
+            height: 525px;
+        }
+    }
+
+    @include tablet {
+        display: grid;
+        grid-template-columns: 1fr repeat(2, 4fr) 1fr;
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            "header header header header"
+            ". section image .";
+            
     }
 }
 
@@ -83,8 +136,16 @@ $desktop: 640px;
 
 .homeHeader {
     width: 100vw;
-    height: 4rem;
+    height: 6rem;
     box-sizing: border-box;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
+
+    @include tablet {
+        grid-area: header;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 5.5rem;
+    }
 
     &__section {
         display: flex;
@@ -92,17 +153,25 @@ $desktop: 640px;
         align-items: center;
         height: inherit;
         padding: 0 2rem;
+
+        @include tablet {
+            grid-area: header;
+        }
     }
 
     &__title {
         font-weight: 800;
         color: $secondaryColor;
-        font-size: clamp(1rem, 10vw, 1.15rem);
+        font-size: clamp(1rem, 10vw, 1.8rem);
     }
 
     &__menu, &__close {
         color: $secondaryColor;
         cursor: pointer;
+
+        @include tablet {
+            display: none !important;
+        }
     }
 
     &__nav {
@@ -110,24 +179,40 @@ $desktop: 640px;
         position: relative;
         height: auto;
         width: inherit;
+
+        @include tablet {
+            display: flex;
+            width: auto;
+        }
     }
 
     &__login, &__signup {
         color: $primaryColor;
-        font-size: 1rem;
+        font-size: clamp(1rem, 3vw, 1.2rem);
         padding: 0.75rem 2rem;
+        text-transform: uppercase;
         width: inherit;
         text-align: start;
         border: none;
-        background-color: transparent;
+        background-color: $bgColor;
         display: block;
         border-left: 5px solid $primaryColor;
 
         &:hover {
-            background-color: $bgColor;
+            background-color: $bgColorDark;
             cursor: pointer;
+
+            @include tablet {
+                background-color: transparent;
+            }
         }
 
+        @include tablet {
+            background-color: none;
+            border: none;
+            font-weight: 800;
+            background-color: transparent;
+        }
     }
 }
 
