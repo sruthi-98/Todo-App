@@ -22,6 +22,7 @@ function Login() {
         })
         .then(result => {
             localStorage.setItem('userId', result?.data?.user?.id);
+            localStorage.setItem('name', result?.data?.user?.name);
             history.push('/tasks')
         })
         .catch(error => alert(error.message));
