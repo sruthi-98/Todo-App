@@ -242,6 +242,8 @@
 .login__section, .signUp__section {
   background-color: #e9e9e9;
   height: 100vh;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 @media (min-width: 786px) {

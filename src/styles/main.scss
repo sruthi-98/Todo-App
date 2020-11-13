@@ -229,6 +229,7 @@ $desktop: 1200px;
     &__section {
         background-color: $bgColor;
         height: 100vh;
+        box-sizing: border-box;
 
         @include tablet {
             width: calc(min(60%, 550px));
