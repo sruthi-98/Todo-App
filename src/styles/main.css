@@ -226,9 +226,27 @@
 }
 
 /* ---------------------------- Login ---------------------------- */
-.login, .signUp {
+@media (min-width: 786px) {
+  .login, .signUp {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.login__section, .signUp__section {
   background-color: #e9e9e9;
   height: 100vh;
+}
+
+@media (min-width: 786px) {
+  .login__section, .signUp__section {
+    width: calc(min(60%, 550px));
+    padding: 2rem 0;
+  }
 }
 
 .login__header, .signUp__header {

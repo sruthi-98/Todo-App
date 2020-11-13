@@ -219,8 +219,20 @@ $desktop: 1200px;
 /* ---------------------------- Login ---------------------------- */
 
 .login {
-    background-color: $bgColor;
-    height: 100vh;
+    @include tablet {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__section {
+        background-color: $bgColor;
+        height: 100vh;
+
+        @include tablet {
+            width: calc(min(60%, 550px));
+            padding: 2rem 0;
+        }
+    }
 
     &__header {
         padding: 1rem;
@@ -290,6 +302,10 @@ $desktop: 1200px;
 
 .signUp {
     @extend .login;
+
+    &__section {
+        @extend .login__section;
+    }
 
     &__header {
         @extend .login__header;
