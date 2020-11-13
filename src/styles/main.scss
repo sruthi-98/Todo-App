@@ -163,11 +163,13 @@ $desktop: 1200px;
         font-weight: 800;
         color: $secondaryColor;
         font-size: clamp(1rem, 10vw, 1.8rem);
+        margin-right: 1rem;
     }
 
     &__menu, &__close {
         color: $secondaryColor;
         cursor: pointer;
+        margin-left: 1rem;
 
         @include tablet {
             display: none !important;
@@ -354,14 +356,48 @@ $desktop: 1200px;
 
     &__section {
         @extend .homeHeader__section;
+
+        @include tablet{
+            width: 100%;
+        }
     }
 
     &__title {
         @extend .homeHeader__title;
+
+        @include tablet {
+            flex: 0.6;
+        }
+
+        @include desktop {
+            flex: 0.8;
+        }
+    }
+
+    &__name {
+        font-weight: 400;
+        color: $primaryColor;
+        font-size: clamp(1rem, 4vw, 1.25rem);
+        margin: auto 1rem auto 0;
+        @include tablet {
+            flex: 0.2;
+        }
+
+        @include desktop {
+            flex: 0.1;
+        }
     }
 
     &__exit {
         @extend .homeHeader__menu;
+        display: inline-block !important;
+        @include tablet {
+            flex: 0.2;
+        }
+
+        @include desktop {
+            flex: 0.1;
+        }
     }
 }
 
@@ -371,6 +407,12 @@ $desktop: 1200px;
     &__section {
         padding: 1rem 2.5rem;
         margin-top: 1rem;
+
+        @include tablet {
+           width: calc(min(60%, 800px));
+           margin-left: auto;
+           margin-right: auto; 
+        }
     }
 
     &__title {
@@ -393,6 +435,7 @@ $desktop: 1200px;
         border-radius: 5px;
         margin-right: 0.5rem;
         padding: 10px;
+        outline: none;
     }
 
     &__add {
@@ -433,6 +476,10 @@ $desktop: 1200px;
             border-bottom: 1px solid #555;
             outline: none;
         }
+    }
+
+    &__fallback {
+        font-size: clamp(1.1rem, 4vw, 1.5rem);
     }
 
     &__todoLabel {

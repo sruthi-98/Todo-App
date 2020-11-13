@@ -163,11 +163,13 @@
   font-weight: 800;
   color: #24285B;
   font-size: clamp(1rem, 10vw, 1.8rem);
+  margin-right: 1rem;
 }
 
 .homeHeader__menu, .taskHeader__exit, .homeHeader__close {
   color: #24285B;
   cursor: pointer;
+  margin-left: 1rem;
 }
 
 @media (min-width: 786px) {
@@ -323,10 +325,83 @@
   margin-bottom: 2rem;
 }
 
+@media (min-width: 786px) {
+  .taskHeader__section {
+    width: 100%;
+  }
+}
+
+@media (min-width: 786px) {
+  .taskHeader__title {
+    -webkit-box-flex: 0.6;
+        -ms-flex: 0.6;
+            flex: 0.6;
+  }
+}
+
+@media (min-width: 1200px) {
+  .taskHeader__title {
+    -webkit-box-flex: 0.8;
+        -ms-flex: 0.8;
+            flex: 0.8;
+  }
+}
+
+.taskHeader__name {
+  font-weight: 400;
+  color: #0D7A6E;
+  font-size: clamp(1rem, 4vw, 1.25rem);
+  margin: auto 1rem auto 0;
+}
+
+@media (min-width: 786px) {
+  .taskHeader__name {
+    -webkit-box-flex: 0.2;
+        -ms-flex: 0.2;
+            flex: 0.2;
+  }
+}
+
+@media (min-width: 1200px) {
+  .taskHeader__name {
+    -webkit-box-flex: 0.1;
+        -ms-flex: 0.1;
+            flex: 0.1;
+  }
+}
+
+.taskHeader__exit {
+  display: inline-block !important;
+}
+
+@media (min-width: 786px) {
+  .taskHeader__exit {
+    -webkit-box-flex: 0.2;
+        -ms-flex: 0.2;
+            flex: 0.2;
+  }
+}
+
+@media (min-width: 1200px) {
+  .taskHeader__exit {
+    -webkit-box-flex: 0.1;
+        -ms-flex: 0.1;
+            flex: 0.1;
+  }
+}
+
 /* ---------------------------- Task Section ---------------------------- */
 .taskList__section {
   padding: 1rem 2.5rem;
   margin-top: 1rem;
+}
+
+@media (min-width: 786px) {
+  .taskList__section {
+    width: calc(min(60%, 800px));
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .taskList__title {
@@ -353,6 +428,7 @@
   border-radius: 5px;
   margin-right: 0.5rem;
   padding: 10px;
+  outline: none;
 }
 
 .taskList__add {
@@ -390,6 +466,10 @@
 .taskList__todoItem label:focus {
   border-bottom: 1px solid #555;
   outline: none;
+}
+
+.taskList__fallback {
+  font-size: clamp(1.1rem, 4vw, 1.5rem);
 }
 
 .taskList__todoLabel {
