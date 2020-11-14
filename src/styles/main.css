@@ -271,6 +271,15 @@
   margin: 2rem 0 2rem 0;
 }
 
+.login__error, .signUp__error {
+  margin: 3rem 1rem 3rem 1rem;
+  padding: 1.5rem;
+  background-color: #F3D8DA;
+  color: #ca1212;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 .login__formGroup, .signUp__formGroup {
   margin: 3rem 1rem 3rem 1rem;
 }
@@ -303,10 +312,6 @@
 .login__formInput:focus, .signUp__formInput:focus {
   border-bottom: 2px solid #0D7A6E;
   outline: none;
-}
-
-.login__formInput:focus:required, .signUp__formInput:focus:required {
-  border: none;
 }
 
 .login__button, .signUp__button {

@@ -255,6 +255,15 @@ $desktop: 1200px;
         margin: 2rem 0 2rem 0;
     }
 
+    &__error {
+        margin: 3rem 1rem 3rem 1rem;
+        padding: 1.5rem;
+        background-color: #F3D8DA;
+        color: #ca1212;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
     &__formGroup {
        margin: 3rem 1rem 3rem 1rem;
     }
@@ -286,10 +295,6 @@ $desktop: 1200px;
         &:focus {
             border-bottom: 2px solid $primaryColor;
             outline: none;
-
-            &:required {
-                border: none;
-            }
         }
     }
 
@@ -332,6 +337,10 @@ $desktop: 1200px;
 
     &__title {
         @extend .login__title;
+    }
+
+    &__error {
+        @extend .login__error;
     }
 
     &__formGroup {
