@@ -35,14 +35,15 @@ function SignUp() {
                 <div className="signUp__container">
                     <h1 className="signUp__title">Sign Up</h1>
 
-                    <form className="signUp__form">
+                    <form className="signUp__form" onSubmit={signUp}>
                         <div className="signUp__formGroup">
-                            <label className="signUp__formLabel">First Name</label>
+                            <label className="signUp__formLabel signUp__formLabel--required">First Name</label>
                             <input 
                                 className="signUp__formInput"
                                 type="text" 
                                 value={firstName} 
                                 onChange={e => setFirstName(e.target.value)}
+                                required={true}
                             />
                         </div>
 
@@ -57,29 +58,30 @@ function SignUp() {
                         </div>
 
                         <div className="signUp__formGroup">
-                            <label className="signUp__formLabel">E-mail</label>
+                            <label className="signUp__formLabel signUp__formLabel--required">E-mail</label>
                             <input 
                                 className="signUp__formInput"
                                 type="text" 
                                 value={email} 
                                 onChange={e => setEmail(e.target.value)}
+                                required={true}
                             />
                         </div>
 
                         <div className="signUp__formGroup">
-                            <label className="signUp__formLabel">Password</label>
+                            <label className="signUp__formLabel signUp__formLabel--required">Password</label>
                             <input 
                                 className="signUp__formInput"
                                 type="password" 
                                 value={password} 
                                 onChange={e => setPassword(e.target.value)}
+                                required={true}
                             />
                         </div>
 
                         <div className="signUp__formGroup">
                             <button
                                 type="submit"
-                                onClick={signUp}
                                 className="signUp__button"
                             >
                                 Sign Up

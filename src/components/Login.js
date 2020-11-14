@@ -36,31 +36,32 @@ function Login() {
                 <div className="login__container">
                     <h1 className="login__title">Login</h1>
 
-                    <form className="login__form">
+                    <form className="login__form" onSubmit={login}>
                         <div className="login__formGroup">
-                            <label className="login__formLabel">E-mail</label>
+                            <label className="login__formLabel login__formLabel--required">E-mail</label>
                             <input 
                                 className="login__formInput"
                                 type="text" 
                                 value={email} 
                                 onChange={e => setEmail(e.target.value)}
+                                required={true}
                             />
                         </div>
 
                         <div className="login__formGroup">
-                            <label className="login__formLabel">Password</label>
+                            <label className="login__formLabel login__formLabel--required">Password</label>
                             <input 
                                 className="login__formInput"
                                 type="password" 
                                 value={password} 
                                 onChange={e => setPassword(e.target.value)}
+                                required={true}
                             />
                         </div>
                     
                         <div className="login__formGroup">
                             <button
                                 type="submit"
-                                onClick={login}
                                 className="login__button"
                             >
                                 Log In
