@@ -14,7 +14,7 @@ router.post('/register', async (req, res) => {
 
     // Check if the user has an account
     const emailExist = await User.findOne({ email: req.body.email })
-    if (emailExist) return res.status(400).send('Email already exist')
+    if (emailExist) return res.status(400).send('E-mail already exist. Try logging in.')
 
     // Hash password
     const salt = await bcrypt.genSalt(10)
@@ -42,11 +42,11 @@ router.post('/login', async (req, res) => {
 
     // Check if the user does not have an account
     const user = await User.findOne({ email: req.body.email })
-    if (!user) return res.status(400).send('No account')
+    if (!user) return res.status(400).send('Wrong e-mail or password.')
 
     // Checking if password is correct
     const validPassword = await bcrypt.compare(req.body.password, user.password)
-    if (!validPassword) return res.status(400).send('Wrong password')
+    if (!validPassword) return res.status(400).send('Wrong e-mail or password.')
 
     res.status(200).send({
         user: {
