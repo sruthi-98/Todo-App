@@ -515,6 +515,8 @@ $desktop: 1200px;
 
     &__checkbox {
         cursor: pointer;
+        outline: none;
+        margin: auto 0;
     }
 
     &__edit, &__save, &__delete {

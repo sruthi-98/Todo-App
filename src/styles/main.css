@@ -500,6 +500,8 @@
 
 .taskList__checkbox {
   cursor: pointer;
+  outline: none;
+  margin: auto 0;
 }
 
 .taskList__edit, .taskList__save, .taskList__delete {
