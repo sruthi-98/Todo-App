@@ -35,6 +35,7 @@ $desktop: 1200px;
 * {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
+    overflow-x: hidden;
 }
 
 /* ---------------------------- Home ---------------------------- */
@@ -494,12 +495,12 @@ $desktop: 1200px;
 
     &__todoItem {
         margin-bottom: 1rem;
-        padding: 20px;
+        padding: 15px;
         border-radius: 5px;
         display: flex;
 
-        label:focus {
-            border-bottom: 1px solid #555;
+        &--edit {
+            background-color: #A6DDA4 !important;
             outline: none;
         }
     }
@@ -511,6 +512,7 @@ $desktop: 1200px;
     &__todoLabel {
         margin: auto 15px;
         flex: 0.8;
+        padding: 10px;
     }
 
     &__checkbox {

@@ -7,6 +7,7 @@
 * {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
 }
 
 /* ---------------------------- Home ---------------------------- */
@@ -475,15 +476,15 @@
 
 .taskList__todoItem {
   margin-bottom: 1rem;
-  padding: 20px;
+  padding: 15px;
   border-radius: 5px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.taskList__todoItem label:focus {
-  border-bottom: 1px solid #555;
+.taskList__todoItem--edit {
+  background-color: #A6DDA4 !important;
   outline: none;
 }
 
@@ -496,6 +497,7 @@
   -webkit-box-flex: 0.8;
       -ms-flex: 0.8;
           flex: 0.8;
+  padding: 10px;
 }
 
 .taskList__checkbox {
