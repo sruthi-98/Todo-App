@@ -27,11 +27,20 @@ function Task({ todo }) {
         .catch(error => console.log(error));
     }
 
+    // Find current item
+    const findItem = (id)  => {
+        const itemSelector = `li#_${id}`;
+        const labelSelector = `${itemSelector} > label`;
+        const taskItem = document.querySelector(itemSelector);
+        const taskLabel = document.querySelector(labelSelector);
+        return [taskItem, taskLabel];
+    }
+
     // Update description of task 
     const editTask = (id) => {
         setEditClicked(true);
-        const selector = `label#_${id}`;
-        const taskLabel = document.querySelector(selector);
+        const [taskItem, taskLabel] = findItem(id);
+        taskItem.classList.add('taskList__todoItem--edit')
         taskLabel.contentEditable = true;
         taskLabel.focus();
     }
@@ -39,8 +48,8 @@ function Task({ todo }) {
     // Save description of task
     const saveTask = (id) => {
         setEditClicked(false);
-        const selector = `label#_${id}`;
-        const taskLabel = document.querySelector(selector);
+        const [taskItem, taskLabel] = findItem(id);
+        taskItem.classList.remove('taskList__todoItem--edit')
         taskLabel.contentEditable = false;
         axios({
             method: 'patch',
@@ -51,7 +60,7 @@ function Task({ todo }) {
     }
 
     return (
-        <li key={todo._id} className="taskList__todoItem">
+        <li key={todo._id} id={`_${todo._id}`} className="taskList__todoItem">
             <input 
                 className="taskList__checkbox"
                 id={todo._id} 
@@ -60,7 +69,7 @@ function Task({ todo }) {
                 checked={todo.checked}
                 onChange={(e) => toggleTaskStatus(todo._id, todo.checked, e)}
             />
-            <label id={`_${todo._id}`} className="taskList__todoLabel">
+            <label className="taskList__todoLabel">
                 {todo.description} 
             </label>
             {!editClicked ? 
