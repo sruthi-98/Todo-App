@@ -8,6 +8,7 @@ function SignUp() {
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const signUp = (event) => {
         event.preventDefault();
@@ -24,7 +25,7 @@ function SignUp() {
             url: '/user/register',
             data: user
         }).then(() => history.push('/login'))
-          .catch(error => alert(error.message));
+          .catch(error => setErrorMessage(error?.response?.data));
     }
 
     return (
@@ -34,6 +35,8 @@ function SignUp() {
 
                 <div className="signUp__container">
                     <h1 className="signUp__title">Sign Up</h1>
+
+                    {errorMessage !== '' && <div className="signUp__error">{errorMessage}</div>}
 
                     <form className="signUp__form" onSubmit={signUp}>
                         <div className="signUp__formGroup">

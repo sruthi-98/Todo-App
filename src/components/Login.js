@@ -6,6 +6,7 @@ function Login() {
     const history = useHistory();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const login = (event) => {
         event.preventDefault();
@@ -25,7 +26,7 @@ function Login() {
             localStorage.setItem('name', result?.data?.user?.name);
             history.push('/tasks')
         })
-        .catch(error => alert(error.message));
+        .catch(error => setErrorMessage(error?.response?.data));
     }
 
     return (
@@ -35,6 +36,8 @@ function Login() {
             
                 <div className="login__container">
                     <h1 className="login__title">Login</h1>
+
+                    {errorMessage !== '' && <div className="login__error">{errorMessage}</div>}
 
                     <form className="login__form" onSubmit={login}>
                         <div className="login__formGroup">
