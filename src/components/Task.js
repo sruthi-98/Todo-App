@@ -33,6 +33,7 @@ function Task({ todo }) {
         const selector = `label#_${id}`;
         const taskLabel = document.querySelector(selector);
         taskLabel.contentEditable = true;
+        taskLabel.focus();
     }
 
     // Save description of task
