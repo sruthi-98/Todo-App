@@ -25,7 +25,7 @@ function SignUp() {
             url: '/user/register',
             data: user
         }).then(() => history.push('/login'))
-          .catch(error => setErrorMessage(error?.response?.data));
+          .catch(error => setErrorMessage(error?.message || error?.response?.data));
     }
 
     return (
