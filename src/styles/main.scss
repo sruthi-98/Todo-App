@@ -35,7 +35,6 @@ $desktop: 1200px;
 * {
     margin: 0;
     font-family: 'Montserrat', sans-serif;
-    overflow-x: hidden;
 }
 
 /* ---------------------------- Home ---------------------------- */
@@ -380,6 +379,7 @@ $desktop: 1200px;
     @extend .homeHeader;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
+    box-sizing: border-box;
 
     &__section {
         @extend .homeHeader__section;
@@ -529,6 +529,43 @@ $desktop: 1200px;
 
 }
 
+/* ---------------------------- Loader ---------------------------- */
+
+.loader {
+    display: inline-block;
+    margin: 0 auto;
+
+    span {
+        display: inline-block;
+        border-radius: 100%;
+        width: 0.7rem;
+        height: 0.7rem;
+        margin: 5px;
+        background-color: $primaryColor;
+        animation: loader 0.8s linear 0s infinite alternate forwards;
+
+        &:nth-child(1), &:nth-child(5) {
+            animation-delay: -1s
+        }
+
+        &:nth-child(2), &:nth-child(4) {
+            animation-delay: -0.8s;
+        }
+
+        &:nth-child(3) {
+            animation-delay: 0.266s;
+        }
+    }
+}
+
+@keyframes loader {
+    from {
+        transform: scale(0, 0);
+    }
+    to {
+        transform: scale(1, 1);
+    }
+}
 
 
 

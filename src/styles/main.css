@@ -7,7 +7,6 @@
 * {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  overflow-x: hidden;
 }
 
 /* ---------------------------- Home ---------------------------- */
@@ -343,6 +342,8 @@
   -webkit-box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
           box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 @media (min-width: 786px) {
@@ -512,5 +513,59 @@
           flex: 0.1;
   margin: auto 0;
   cursor: pointer;
+}
+
+/* ---------------------------- Loader ---------------------------- */
+.loader {
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.loader span {
+  display: inline-block;
+  border-radius: 100%;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin: 5px;
+  background-color: #0D7A6E;
+  -webkit-animation: loader 0.8s linear 0s infinite alternate forwards;
+          animation: loader 0.8s linear 0s infinite alternate forwards;
+}
+
+.loader span:nth-child(1), .loader span:nth-child(5) {
+  -webkit-animation-delay: -1s;
+          animation-delay: -1s;
+}
+
+.loader span:nth-child(2), .loader span:nth-child(4) {
+  -webkit-animation-delay: -0.8s;
+          animation-delay: -0.8s;
+}
+
+.loader span:nth-child(3) {
+  -webkit-animation-delay: 0.266s;
+          animation-delay: 0.266s;
+}
+
+@-webkit-keyframes loader {
+  from {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+  to {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
+}
+
+@keyframes loader {
+  from {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+  }
+  to {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1);
+  }
 }
 /*# sourceMappingURL=main.css.map */
