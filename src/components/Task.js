@@ -29,27 +29,35 @@ function Task({ todo }) {
 
     // Find current item
     const findItem = (id)  => {
-        const itemSelector = `li#_${id}`;
-        const labelSelector = `${itemSelector} > label`;
-        const taskItem = document.querySelector(itemSelector);
+        const labelSelector = `label#_${id}`;
         const taskLabel = document.querySelector(labelSelector);
-        return [taskItem, taskLabel];
+        return taskLabel;
+    }
+
+    const setCursorToEnd = (element) => {
+        let range, selection;
+        range = document.createRange();
+        range.selectNodeContents(element);
+        range.collapse(false);
+        selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        console.log(range, selection);
     }
 
     // Update description of task 
     const editTask = (id) => {
         setEditClicked(true);
-        const [taskItem, taskLabel] = findItem(id);
-        taskItem.classList.add('taskList__todoItem--edit')
+        const taskLabel = findItem(id);
         taskLabel.contentEditable = true;
+        setCursorToEnd(taskLabel);
         taskLabel.focus();
     }
 
     // Save description of task
     const saveTask = (id) => {
         setEditClicked(false);
-        const [taskItem, taskLabel] = findItem(id);
-        taskItem.classList.remove('taskList__todoItem--edit')
+        const taskLabel = findItem(id);
         taskLabel.contentEditable = false;
         axios({
             method: 'patch',
@@ -60,7 +68,7 @@ function Task({ todo }) {
     }
 
     return (
-        <li key={todo._id} id={`_${todo._id}`} className="taskList__todoItem">
+        <li key={todo._id} className="taskList__todoItem">
             <input 
                 className="taskList__checkbox"
                 id={todo._id} 
@@ -69,7 +77,7 @@ function Task({ todo }) {
                 checked={todo.checked}
                 onChange={(e) => toggleTaskStatus(todo._id, todo.checked, e)}
             />
-            <label className="taskList__todoLabel">
+            <label id={`_${todo._id}`}  className="taskList__todoLabel">
                 {todo.description} 
             </label>
             {!editClicked ? 
