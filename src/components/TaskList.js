@@ -1,23 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from '../axios';
 import AddTask from './AddTask';
+import Loader from './Loader';
 import Task from './Task';
 import TaskHeader from './TaskHeader';
 
 function TaskList() {
     const userId = localStorage.getItem('userId');
     const [todos, setTodos] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const isInitialMount = useRef(true);
 
     // Get task data from database
     useEffect(() => {
+        if(isInitialMount.current) {
+            isInitialMount.current = false;
+            getTasks()
+            .then((res) => {
+                setTodos(res.data[0]?.todos);
+                setLoading(false);
+            })
+            .catch(error => console.log(error));
+        }
+        else {
+            getTasks()
+            .then((res) => setTodos(res.data[0]?.todos))
+            .catch(error => console.log(error));
+        }  
+    });
+
+    const getTasks = () => (
         axios({
             method: 'get',
             url: '/tasks/' + userId,
-        }).then((res) => setTodos(res.data[0]?.todos))
-          .catch(error => console.log(error));
-        
-    }, [todos, userId]);
+        })
+    )
 
     // Display tasks based on status
     const displayTasks = (checked) => {
@@ -41,8 +58,10 @@ function TaskList() {
             {/* Add Task section */}
             <AddTask />
 
+            {loading && <Loader />}
+
             {/* Pending Tasks */}
-            <div className="taskList__section">
+            {!loading && <div className="taskList__section">
                 {pendingTasks.length > 0 ?
                     <div className="taskList__pending">
                         <h2 className="taskList__title">Pending Tasks</h2>
@@ -51,7 +70,7 @@ function TaskList() {
                     :
                     <h3 className="taskList__fallback">You don't have any pending tasks. Yaaaaayyyyy!!!!!!!!</h3>
                 }
-            </div>
+            </div>}
 
             {/* Completed Tasks */}
             <div className="taskList__section">
