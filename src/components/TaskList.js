@@ -7,6 +7,7 @@ import TaskHeader from './TaskHeader';
 function TaskList() {
     const userId = localStorage.getItem('userId');
     const [todos, setTodos] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     // Get task data from database
     useEffect(() => {
