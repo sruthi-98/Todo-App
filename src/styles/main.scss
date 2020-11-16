@@ -379,7 +379,6 @@ $desktop: 1200px;
     @extend .homeHeader;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.1);
     margin-bottom: 2rem;
-    box-sizing: border-box;
 
     &__section {
         @extend .homeHeader__section;
@@ -452,22 +451,30 @@ $desktop: 1200px;
     &__addTaskSection {
         margin-top: 1.5rem;
         display: flex;
+        flex-direction: column;
+        gap: 10px;
         width: 100%;
         justify-content: space-between;
+
+        @include tablet {
+            flex-direction: row;
+        }
     }
 
     &__taskInput {
-        width: 100%;
         border: 1px solid black;
         border-radius: 5px;
-        margin-right: 0.5rem;
         padding: 10px;
         outline: none;
+
+        @include tablet {
+            width: 100%;
+        }
     }
 
     &__add {
         @extend .home__button;
-        margin-top: 0;
+        margin: 0;
         padding: 15px 25px;
     }
 
