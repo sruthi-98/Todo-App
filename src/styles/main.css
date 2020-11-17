@@ -82,8 +82,8 @@
 }
 
 .home__image {
-  width: 400px;
-  height: 300px;
+  width: 360px;
+  height: 270px;
   margin: 4rem auto 0 auto;
   display: block;
 }
@@ -118,7 +118,6 @@
 
 /* ---------------------------- Home Header ---------------------------- */
 .homeHeader, .taskHeader {
-  width: 100vw;
   height: 6rem;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -187,9 +186,9 @@
 
 @media (min-width: 786px) {
   .homeHeader__nav {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
     width: auto;
   }
 }
@@ -199,7 +198,7 @@
   font-size: clamp(1rem, 3vw, 1.2rem);
   padding: 0.75rem 2rem;
   text-transform: uppercase;
-  width: inherit;
+  width: 100vw;
   text-align: start;
   border: none;
   background-color: #e9e9e9;
@@ -224,6 +223,9 @@
     border: none;
     font-weight: 800;
     background-color: transparent;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
   }
 }
 
@@ -500,11 +502,6 @@
   display: flex;
 }
 
-.taskList__todoItem--edit {
-  background-color: #A6DDA4 !important;
-  outline: none;
-}
-
 .taskList__fallback {
   font-size: clamp(1.1rem, 4vw, 1.5rem);
 }
@@ -515,6 +512,12 @@
       -ms-flex: 0.8;
           flex: 0.8;
   padding: 10px;
+  outline: none;
+}
+
+.taskList__todoLabel:focus {
+  background-color: white;
+  border-radius: 5px;
 }
 
 .taskList__checkbox {
@@ -527,7 +530,7 @@
   -webkit-box-flex: 0.1;
       -ms-flex: 0.1;
           flex: 0.1;
-  margin: auto 0;
+  margin: auto 0.25rem;
   cursor: pointer;
 }
 
